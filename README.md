@@ -21,13 +21,17 @@ To run the Watch Wise app locally, follow these steps:
 
 2. Install the project dependencies using npm:
 
+```
 npm install
+```
 
 ### Development
 
 To start the development server and run the app locally, use the following command:
 
+```
 npm run dev
+```
 
 This will launch the app on `http://localhost:3000`.
 
@@ -35,7 +39,9 @@ This will launch the app on `http://localhost:3000`.
 
 To create a production build of the app, use the following command:
 
+```
 npm run build
+```
 
 The production build will be available in the `dist` folder.
 
@@ -43,11 +49,14 @@ The production build will be available in the `dist` folder.
 
 The Watch Wise app relies on the following dependencies:
 
+```
 - React (^18.2.0)
 - React DOM (^18.2.0)
+```
 
 Development Dependencies:
 
+```
 - @types/react (^18.2.15)
 - @types/react-dom (^18.2.7)
 - @vitejs/plugin-react (^4.0.3)
@@ -56,6 +65,7 @@ Development Dependencies:
 - eslint-plugin-react-hooks (^4.6.0)
 - eslint-plugin-react-refresh (^0.4.3)
 - vite (^4.4.5)
+```
 
 ## Hackathon
 
