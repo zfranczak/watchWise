@@ -5,12 +5,8 @@ const Navigation = () => {
   return (
     <nav className='nav'>
       <a href='/' className='site-title'>
-        Watch
-        <a href='/' className='site-title'>
-          Wise
-        </a>
+        Watch Wise
       </a>
-
       <ul className='nav-locations'>
         <li>
           <a href='/'>My Movie List</a>
