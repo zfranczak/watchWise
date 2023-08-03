@@ -27,7 +27,7 @@ const ApiCall = () => {
 
   return (
     <div>
-      <button onClick={fetchMovies}>Call Movie Phone</button>
+      <button onClick={fetchMovies}>See Today's Trending Movies</button>
       <div className='movie-block'>
         {movies.map((movie) => (
           <div key={movie.id} className='single-movie'>
@@ -37,7 +37,7 @@ const ApiCall = () => {
               className='movie-poster'
             />
             <h2 className='movie-title'>{movie.title}</h2>
-            <p className='movie-overview'>{movie.overview}</p>
+            {/* <p className='movie-overview'>{movie.overview}</p> */}
           </div>
         ))}
       </div>
