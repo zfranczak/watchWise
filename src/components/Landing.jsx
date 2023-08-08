@@ -1,6 +1,7 @@
 import React from 'react';
+import Trending from './Trending';
 
-const Landing = () => {
+const Landing = ({}) => {
   return (
     <div>
       <h1>Watch Wise</h1>
@@ -9,6 +10,7 @@ const Landing = () => {
         Embrace movie serenity with WatchWise as your spiritual companion in
         managing and discovering films.
       </h3>
+      {/* <Trending /> */}
     </div>
   );
 };
