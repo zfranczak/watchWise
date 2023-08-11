@@ -1,7 +1,11 @@
 import React from 'react';
 
 const Watched = () => {
-  return <div>Watched</div>;
+  return (
+    <div>
+      <h1>Watched</h1>
+    </div>
+  );
 };
 
 export default Watched;

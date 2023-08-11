@@ -15,10 +15,10 @@ const Navigation = () => {
               <Link to='/watchList'>My Movie Watch List</Link>
             </li>
             <li>
-              <Link to='/watched'>Recommendations</Link>
+              <Link to='/watched'>Watched</Link>
             </li>
             <li>
-              <Link to='/trending'>Search</Link>
+              <Link to='/trending'>Trending</Link>
             </li>
             <li>
               <Link to='/add' className='btn'>

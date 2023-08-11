@@ -5,30 +5,27 @@ import ApiCall from './components/ApiCall';
 import WatchList from './components/WatchList';
 import Watched from './components/Watched';
 import Add from './components/Add';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from 'react-router-dom'; // Updated import
+import Trending from './components/Trending';
 
 function App() {
   return (
-    <>
-      <Router>
-        <Navigation />
+    <Router>
+      <Navigation />
 
-        <Switch>
-          <Route exact path='/'>
-            <Landing />
-            <ApiCall />
-          </Route>
-
-          <Route path='/watched'>
-            <Watched />
-          </Route>
-
-          <Route path='/add'>
-            <Add />
-          </Route>
-        </Switch>
-      </Router>
-    </>
+      <Routes>
+        <Route path='/' element={<Landing />} />
+        <Route path='/watched' element={<Watched />} />
+        <Route path='/add' element={<Add />} />
+        <Route path='/trending' element={<Trending />} />
+        <Route path='/watchlist' element={<WatchList />} />
+      </Routes>
+    </Router>
   );
 }
 
