@@ -1,24 +1,34 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/navigation.css';
 
 const Navigation = () => {
   return (
-    <nav className='nav'>
-      <a href='/' className='site-title'>
-        Watch Wise
-      </a>
-      <ul className='nav-locations'>
-        <li>
-          <a href='/'>My Movie List</a>
-        </li>
-        <li>
-          <a href='/'>Recommendations</a>
-        </li>
-        <li>
-          <a href='/'>Search</a>
-        </li>
-      </ul>
-    </nav>
+    <header className='nav'>
+      <div className='container'>
+        <div className='inner-content'>
+          <div className='site-title'>
+            <Link to='/'>Watch Wise</Link>
+          </div>
+          <ul className='nav-locations'>
+            <li>
+              <Link to='/watchList'>My Movie Watch List</Link>
+            </li>
+            <li>
+              <Link to='/watched'>Watched</Link>
+            </li>
+            <li>
+              <Link to='/trending'>Trending</Link>
+            </li>
+            <li>
+              <Link to='/add' className='btn'>
+                Add
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
   );
 };
 
