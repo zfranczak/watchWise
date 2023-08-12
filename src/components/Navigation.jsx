@@ -18,7 +18,7 @@ const Navigation = () => {
               <Link to='/watched'>Watched</Link>
             </li>
             <li>
-              <Link to='/trending'>Trending</Link>
+              <Link to='/toprated'>Top Rated</Link>
             </li>
             <li>
               <Link to='/add' className='btn'>

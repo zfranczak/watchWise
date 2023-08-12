@@ -1,5 +1,5 @@
 import React from 'react';
-import Trending from './Trending';
+import Trending from './TopRated';
 
 const Landing = ({}) => {
   return (
