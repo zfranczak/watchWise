@@ -65,6 +65,16 @@ const ApiCall = () => {
       .catch((err) => console.error(err));
   };
 
+  const fetchDetails = (movieId) => {
+    fetch(
+      'https://api.themoviedb.org/3/movie/${movieId}?language=en-US',
+      options
+    )
+      .then((response) => response.json())
+      .then((response) => console.log(response))
+      .catch((err) => console.error(err));
+  };
+
   useEffect(() => {
     fetchMovies(); // Fetch movies and providers on component mount
   }, []);
