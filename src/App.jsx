@@ -11,7 +11,7 @@ import {
   Routes,
   Navigate,
 } from 'react-router-dom'; // Updated import
-import Trending from './components/Trending';
+import TopRated from './components/TopRated';
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
         <Route path='/' element={<Landing />} />
         <Route path='/watched' element={<Watched />} />
         <Route path='/add' element={<Add />} />
-        <Route path='/trending' element={<Trending />} />
+        <Route path='/toprated' element={<TopRated />} />
         <Route path='/watchlist' element={<WatchList />} />
       </Routes>
     </Router>

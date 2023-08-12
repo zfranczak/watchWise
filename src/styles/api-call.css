@@ -29,3 +29,21 @@
 .movie-overview {
   flex-grow: 1;
 }
+
+.provider-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+.provider {
+  display: flex;
+}
+.provider-logo {
+  width: 50px;
+  height: auto;
+}
