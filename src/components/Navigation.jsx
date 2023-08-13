@@ -8,11 +8,13 @@ const Navigation = () => {
       <div className='container'>
         <div className='inner-content'>
           <div className='site-title'>
-            <Link to='/'>Watch Wise</Link>
+            <Link to='/' className='site-title'>
+              WatchWise
+            </Link>
           </div>
           <ul className='nav-locations'>
             <li>
-              <Link to='/watchList'>My Movie Watch List</Link>
+              <Link to='/watchList'>Watch List</Link>
             </li>
             <li>
               <Link to='/watched'>Watched</Link>
@@ -22,7 +24,7 @@ const Navigation = () => {
             </li>
             <li>
               <Link to='/add' className='btn'>
-                Add
+                + Add
               </Link>
             </li>
           </ul>
