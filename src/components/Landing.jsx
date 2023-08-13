@@ -1,5 +1,6 @@
 import React from 'react';
 import Trending from './TopRated';
+import Add from './Add';
 
 const Landing = ({}) => {
   return (
@@ -11,6 +12,7 @@ const Landing = ({}) => {
         managing and discovering films.
       </h3>
       {/* <Trending /> */}
+      <Add />
     </div>
   );
 };
