@@ -35,6 +35,7 @@ const Modal = ({ isOpen, onClose, movie }) => {
         />
         <h2>{movie.title}</h2>
         <h3>{movie.overview}</h3>
+
         <div className='provider-container'>
           {movie.providers &&
             movie.providers.map((provider, index) => (
