@@ -14,13 +14,34 @@
   -webkit-text-size-adjust: 100%;
 }
 
+h1 {
+  color: #22b6d3;
+}
+
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #22b6d3;
   text-decoration: inherit;
 }
 a:hover {
   color: #ffffff;
+}
+
+input {
+  background-color: #22b6d3;
+  font-size: 18px;
+  font-weight: 500;
+  min-height: 3rem;
+  padding: 20px;
+  margin: 50px auto;
+  border-radius: 5px;
+  border: 1px rgb(255, 255, 255) solid;
+  width: 70vw;
+  max-width: 600px;
+}
+
+input::placeholder {
+  color: white;
 }
 
 body {
@@ -59,7 +80,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #22b6d3;
   }
   button {
     background-color: #f9f9f9;

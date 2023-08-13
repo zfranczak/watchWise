@@ -29,7 +29,23 @@ const ApiCall = () => {
           return movie;
         });
 
-        setMovies(moviesWithProviders);
+        // Fetch details for each movie in parallel
+        const movieDetailPromises = moviesWithProviders.map((movie) =>
+          fetchDetails(movie.id)
+        );
+
+        Promise.all(movieDetailPromises)
+          .then((details) => {
+            const moviesWithDetails = moviesWithProviders.map(
+              (movie, index) => ({
+                ...movie,
+                details: details[index],
+              })
+            );
+
+            setMovies(moviesWithDetails);
+          })
+          .catch((err) => console.error(err));
       })
       .catch((err) => console.error(err));
   };
@@ -67,7 +83,7 @@ const ApiCall = () => {
 
   const fetchDetails = (movieId) => {
     fetch(
-      'https://api.themoviedb.org/3/movie/${movieId}?language=en-US',
+      `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
       options
     )
       .then((response) => response.json())
