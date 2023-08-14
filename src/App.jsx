@@ -13,19 +13,23 @@ import {
 } from 'react-router-dom'; // Updated import
 import TopRated from './components/TopRated';
 
+import { GlobalProvider } from './context/GlobalState';
+
 function App() {
   return (
-    <Router>
-      <Navigation />
+    <GlobalProvider>
+      <Router>
+        <Navigation />
 
-      <Routes>
-        <Route path='/' element={<Landing />} />
-        <Route path='/watched' element={<Watched />} />
-        <Route path='/add' element={<Add />} />
-        <Route path='/toprated' element={<TopRated />} />
-        <Route path='/watchlist' element={<WatchList />} />
-      </Routes>
-    </Router>
+        <Routes>
+          <Route path='/' element={<Landing />} />
+          <Route path='/watched' element={<Watched />} />
+          <Route path='/add' element={<Add />} />
+          <Route path='/toprated' element={<TopRated />} />
+          <Route path='/watchlist' element={<WatchList />} />
+        </Routes>
+      </Router>
+    </GlobalProvider>
   );
 }
 

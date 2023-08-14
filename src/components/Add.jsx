@@ -62,9 +62,13 @@ const Add = () => {
                 {/* <p className='movie-release-date'>
                   Release Date: {movie.release_date}
                 </p> */}
-                <p className='movie-rating'>
-                  Average Rating: {movie.vote_average}
+                <p className='movie-release'>
+                  {movie.release_date.substring(0, 4)}
                 </p>
+                <p className='movie-rating'>Rating: {movie.vote_average}</p>
+                <div className='controls'>
+                  <button className='btn'>Add to Watchlist</button>
+                </div>
               </div>
             ))}
           </div>
