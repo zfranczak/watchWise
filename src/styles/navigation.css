@@ -49,12 +49,13 @@ body {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #7bff1c;
+  background-color: #009f50;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 .btn:hover {
   border-color: #edeeff;
+  background-color: #1a7e4c;
 }
 .btn:focus,
 .btn:focus-visible {

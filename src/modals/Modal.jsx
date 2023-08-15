@@ -35,6 +35,10 @@ const Modal = ({ isOpen, onClose, movie }) => {
         />
         <h2>{movie.title}</h2>
         <h3>{movie.overview}</h3>
+        <p>{movie.release_date.substring(0, 4)}</p>
+        <div className='controls'>
+          <button className='btn'>Add to Watchlist</button>
+        </div>
 
         <div className='provider-container'>
           {movie.providers &&
