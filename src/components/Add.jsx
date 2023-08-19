@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { GlobalContext } from '../context/GlobalState';
 
 const token = import.meta.env.VITE_TMDB_TOKEN;
 
 const Add = () => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
+  const { addMovieToWatchlist } = useContext(GlobalContext);
 
   const onChange = (e) => {
     setQuery(e.target.value);
@@ -67,7 +69,12 @@ const Add = () => {
                 </p>
                 <p className='movie-rating'>Rating: {movie.vote_average}</p>
                 <div className='controls'>
-                  <button className='btn'>Add to Watchlist</button>
+                  <button
+                    className='btn'
+                    onClick={() => addMovieToWatchlist(movie)}
+                  >
+                    Add to Watchlist
+                  </button>
                 </div>
               </div>
             ))}
