@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import '../styles/modal.css';
+import { GlobalContext } from '../context/GlobalState';
 
 const Modal = ({ isOpen, onClose, movie }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const { addMovieToWatchlist } = useContext(GlobalContext);
 
   useEffect(() => {
     setIsVisible(isOpen);
@@ -37,7 +39,9 @@ const Modal = ({ isOpen, onClose, movie }) => {
         <h3>{movie.overview}</h3>
         <p>{movie.release_date.substring(0, 4)}</p>
         <div className='controls'>
-          <button className='btn'>Add to Watchlist</button>
+          <button className='btn' onClick={() => addMovieToWatchlist(movie)}>
+            Add to Watchlist
+          </button>
         </div>
 
         <div className='provider-container'>
