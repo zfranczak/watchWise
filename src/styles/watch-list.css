@@ -1,0 +1,33 @@
+li {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.watchlist-movie {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.watchlist-movie-poster {
+  height: 150px;
+}
+
+.movie-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin: 0;
+}
+
+.movie-title {
+  margin: 0; /* Adjust margin as needed */
+}
