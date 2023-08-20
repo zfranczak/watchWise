@@ -5,6 +5,10 @@ export const AppReducer = (state, action) => {
         ...state,
         watchlist: [action.payload, ...state.watchlist],
       };
+    case 'LOAD_FROM_LOCAL_STORAGE':
+      return {
+        ...action.payload,
+      };
     default:
       return state;
   }
