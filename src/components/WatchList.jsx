@@ -1,16 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import '../styles/watch-list.css';
+import Modal from '../modals/Modal';
 
 const WatchList = () => {
   const { watchlist } = useContext(GlobalContext);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+
+  const openMovieDetails = (movie) => {
+    setSelectedMovie(movie);
+  };
 
   return (
     <div>
       <h1>Watch List</h1>
       <ul>
         {watchlist.map((movie) => (
-          <li key={movie.id} className='watchlist-movie'>
+          <li
+            key={movie.id}
+            className='watchlist-movie'
+            onClick={() => openMovieDetails(movie)}
+          >
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.title}
@@ -44,6 +54,13 @@ const WatchList = () => {
           </li>
         ))}
       </ul>
+      {selectedMovie && (
+        <Modal
+          isOpen={selectedMovie !== null}
+          onClose={() => setSelectedMovie(null)}
+          movie={selectedMovie}
+        />
+      )}
     </div>
   );
 };
