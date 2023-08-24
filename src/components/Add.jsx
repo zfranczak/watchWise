@@ -1,12 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
+import MovieFetcher from './MovieFetcher'; // Import the new component
 
 const token = import.meta.env.VITE_TMDB_TOKEN;
 
 const Add = () => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
-  const { addMovieToWatchlist } = useContext(GlobalContext);
+  const { watchlist, addMovieToWatchlist } = useContext(GlobalContext);
 
   const onChange = (e) => {
     setQuery(e.target.value);
@@ -38,6 +39,10 @@ const Add = () => {
       .catch((err) => console.error(err));
   };
 
+  const isMovieInWatchlist = (movieId) => {
+    return watchlist.some((watchlistMovie) => watchlistMovie.id === movieId);
+  };
+
   return (
     <div className='add-page'>
       <div className='container'>
@@ -60,22 +65,26 @@ const Add = () => {
                   className='movie-poster'
                 />
                 <h2 className='movie-title'>{movie.title}</h2>
-                {/* <p className='movie-overview'>{movie.overview}</p> */}
-                {/* <p className='movie-release-date'>
-                  Release Date: {movie.release_date}
-                </p> */}
                 <p className='movie-release'>
                   {movie.release_date.substring(0, 4)}
                 </p>
                 <p className='movie-rating'>Rating: {movie.vote_average}</p>
                 <div className='controls'>
-                  <button
-                    className='btn'
-                    onClick={() => addMovieToWatchlist(movie)}
-                  >
-                    Add to Watchlist
-                  </button>
+                  {isMovieInWatchlist(movie.id) ? (
+                    <button className='btn' disabled>
+                      Added to Watchlist
+                    </button>
+                  ) : (
+                    <button
+                      className='btn'
+                      onClick={() => addMovieToWatchlist(movie)}
+                    >
+                      Add to Watchlist
+                    </button>
+                  )}
                 </div>
+                {/* Pass the movie ID to MovieFetcher */}
+                <MovieFetcher movieId={movie.id} />
               </div>
             ))}
           </div>
