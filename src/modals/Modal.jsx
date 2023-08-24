@@ -4,7 +4,7 @@ import { GlobalContext } from '../context/GlobalState';
 
 const Modal = ({ isOpen, onClose, movie }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const { addMovieToWatchlist } = useContext(GlobalContext);
+  const { watchlist, addMovieToWatchlist } = useContext(GlobalContext);
 
   useEffect(() => {
     setIsVisible(isOpen);
@@ -14,9 +14,20 @@ const Modal = ({ isOpen, onClose, movie }) => {
     setIsVisible(false);
     onClose();
   };
+
   const handleOverlayClick = (event) => {
     if (event.target.classList.contains('modal-overlay')) {
       closeModal();
+    }
+  };
+
+  const isMovieInWatchlist = watchlist.some(
+    (watchlistMovie) => watchlistMovie.id === movie.id
+  );
+
+  const handleAddToWatchlist = () => {
+    if (!isMovieInWatchlist) {
+      addMovieToWatchlist(movie);
     }
   };
 
@@ -38,11 +49,16 @@ const Modal = ({ isOpen, onClose, movie }) => {
         <h2>{movie.title}</h2>
         <h3>{movie.overview}</h3>
         <p>{movie.release_date.substring(0, 4)}</p>
-        <div className='controls'>
-          <button className='btn' onClick={() => addMovieToWatchlist(movie)}>
-            Add to Watchlist
-          </button>
-        </div>
+
+        {isMovieInWatchlist ? (
+          <p>This movie is already in your watchlist.</p>
+        ) : (
+          <div className='controls'>
+            <button className='btn' onClick={handleAddToWatchlist}>
+              Add to Watchlist
+            </button>
+          </div>
+        )}
 
         <div className='provider-container'>
           {movie.providers &&
@@ -53,7 +69,6 @@ const Modal = ({ isOpen, onClose, movie }) => {
                   alt={provider.name}
                   className='provider-logo'
                 />
-                {/* <p className='provider-name'>{provider.name}</p> */}
               </div>
             ))}
         </div>
