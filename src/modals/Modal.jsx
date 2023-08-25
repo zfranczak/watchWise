@@ -71,6 +71,7 @@ const Modal = ({ isOpen, onClose, movie }) => {
                 />
               </div>
             ))}
+          {/* {console.log(movie.providers)} */}
         </div>
         {/* Additional movie details */}
       </div>
