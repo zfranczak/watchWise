@@ -8,3 +8,8 @@
 .search-btn {
   color: white;
 }
+
+.buttons-container {
+  display: felx;
+  flex-direction: column;
+}

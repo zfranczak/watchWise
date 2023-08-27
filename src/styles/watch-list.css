@@ -6,7 +6,9 @@ li {
 .watchlist-movie {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   gap: 10px;
+  border: 1px solid green;
 }
 
 .watchlist-movie-poster {
@@ -15,19 +17,47 @@ li {
 
 .movie-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   margin: 0;
+  border: 1px solid blue;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border: 1px solid white;
+  min-width: 500px;
 }
 
 .movie-details {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+  align-self: center;
+  flex-grow: 2;
   margin: 0;
+  border: 1px solid red;
 }
 
 .movie-title {
-  margin: 0; /* Adjust margin as needed */
+  margin: 0;
+}
+
+.buttons-container {
+  display: felx;
+  flex-direction: column;
+  /* border: white 1px solid; */
+}
+
+.move-to-watched-button {
+  background-color: green;
+}
+
+.movie-list {
+  min-width: 800px;
+
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
