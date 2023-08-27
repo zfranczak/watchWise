@@ -17,12 +17,12 @@ const WatchList = ({ providersData }) => {
       <h1>Watch List</h1>
       <ul className='movie-list'>
         {watchlist.map((movie) => (
-          <li key={movie.id} className='watchlist-movie'>
+          <li key={movie.id} className='watchlist-movie movie-box'>
             <div className='movie-info' onClick={() => openMovieDetails(movie)}>
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
-                className='watchlist-movie-poster'
+                className='watchlist-movie-poster poster'
               />
               <div className='movie-details'>
                 <h2 className='movie-title'>{movie.title}</h2>

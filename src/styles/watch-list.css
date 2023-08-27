@@ -1,17 +1,19 @@
 li {
   list-style: none;
-  margin-top: 10px;
 }
 
-.watchlist-movie {
+.movie-box {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   gap: 10px;
-  border: 1px solid green;
+  margin-top: 10px;
+  background-color: rgb(40, 43, 45);
+  border-radius: 20px;
+  padding: 15px 0;
 }
 
-.watchlist-movie-poster {
+.poster {
   height: 150px;
 }
 
@@ -21,14 +23,13 @@ li {
   justify-content: flex-start;
   align-items: flex-start;
   margin: 0;
-  border: 1px solid blue;
 }
 
 .movie-info {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  border: 1px solid white;
+
   min-width: 500px;
 }
 
@@ -36,7 +37,6 @@ li {
   align-self: center;
   flex-grow: 2;
   margin: 0;
-  border: 1px solid red;
 }
 
 .movie-title {
@@ -44,12 +44,15 @@ li {
 }
 
 .buttons-container {
-  display: felx;
+  display: flex;
   flex-direction: column;
-  /* border: white 1px solid; */
+  justify-content: center;
+
+  gap: 10px;
 }
 
-.move-to-watched-button {
+.move-to-watched-button,
+.move-to-watchlist-button {
   background-color: green;
 }
 

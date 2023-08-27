@@ -14,14 +14,14 @@ const Watched = () => {
   return (
     <div>
       <h1>Watched Movies</h1>
-      <ul>
+      <ul className='movie-list'>
         {watched.map((movie) => (
-          <li key={movie.id} className='watched-movie'>
+          <li key={movie.id} className='watched-movie movie-box'>
             <div className='movie-info' onClick={() => openMovieDetails(movie)}>
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
-                className='watched-movie-poster'
+                className='watched-movie-poster poster'
               />
               <div className='movie-details'>
                 <h2 className='movie-title'>{movie.title}</h2>
@@ -31,18 +31,20 @@ const Watched = () => {
                 <p className='movie-rating'>Rating: {movie.vote_average}</p>
               </div>
             </div>
-            <button
-              className='move-to-watchlist-button'
-              onClick={() => moveMovieToWatchlist(movie.id)} // Use the correct function
-            >
-              Move to Watchlist
-            </button>
-            <button
-              className='remove-button'
-              onClick={() => removeMovieFromWatchlist(movie.id)}
-            >
-              Remove
-            </button>
+            <div className='buttons-container'>
+              <button
+                className='move-to-watchlist-button'
+                onClick={() => moveMovieToWatchlist(movie.id)} // Use the correct function
+              >
+                Move to Watchlist
+              </button>
+              <button
+                className='remove-button'
+                onClick={() => removeMovieFromWatchlist(movie.id)}
+              >
+                Remove
+              </button>
+            </div>
           </li>
         ))}
       </ul>
