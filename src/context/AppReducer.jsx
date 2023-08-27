@@ -5,9 +5,12 @@ export const AppReducer = (state, action) => {
         ...state,
         watchlist: [action.payload, ...state.watchlist],
       };
-    case 'LOAD_FROM_LOCAL_STORAGE':
+    case 'REMOVE_FROM_WATCHLIST':
       return {
-        ...action.payload,
+        ...state,
+        watchlist: state.watchlist.filter(
+          (movie) => movie.id !== action.payload
+        ),
       };
     default:
       return state;
