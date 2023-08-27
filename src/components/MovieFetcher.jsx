@@ -1,47 +1,50 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const MovieFetcher = ({ movieId }) => {
-  const [movieData, setMovieData] = useState(null);
+const MovieFetcher = ({ movieId, options, updateProvidersData }) => {
+  const [movieDetails, setMovieDetails] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchMovieData = async () => {
-      // Fetch movie details
-      const movieResponse = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
-        options
-      );
-      const movieData = await movieResponse.json();
+      try {
+        // Fetch movie data
+        const movieResponse = await fetch(
+          `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+          options
+        );
+        const movieData = await movieResponse.json();
 
-      // Fetch providers data
-      const providersResponse = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieId}/watch/providers`,
-        options
-      );
-      const providersData = await providersResponse.json();
+        // Fetch provider data
+        const providerResponse = await fetch(
+          `https://api.themoviedb.org/3/movie/${movieId}/watch/providers?language=en-US`,
+          options
+        );
+        const providerData = await providerResponse.json();
 
-      // Process providers data and combine with movie details
-      const usProviders = providersData.results.US;
-      if (usProviders && usProviders.link) {
-        const providerLogos = usProviders.flatrate.map((provider) => ({
-          logo: `https://image.tmdb.org/t/p/original${provider.logo_path}`,
-          name: provider.provider_name,
-        }));
+        // Update providers data using the provided function
+        updateProvidersData(movieId, providerData);
 
-        const movieWithProviders = {
-          ...movieData,
-          providers: providerLogos,
-        };
-
-        setMovieData(movieWithProviders);
-      } else {
-        setMovieData(movieData);
+        setMovieDetails(movieData);
+        setIsLoading(false);
+      } catch (error) {
+        console.error(error);
+        setIsLoading(false);
       }
     };
 
     fetchMovieData();
-  }, [movieId]);
+  }, [movieId, options, updateProvidersData]);
 
-  return movieData;
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      <h2>{movieDetails.title}</h2>
+      {/* Display additional movie details */}
+    </div>
+  );
 };
 
 export default MovieFetcher;

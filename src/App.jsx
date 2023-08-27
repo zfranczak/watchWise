@@ -1,3 +1,4 @@
+import React, { useState } from 'react'; // Import useState
 import './App.css';
 import Navigation from './components/Navigation';
 import Landing from './components/Landing';
@@ -16,6 +17,15 @@ import TopRated from './components/TopRated';
 import { GlobalProvider } from './context/GlobalState';
 
 function App() {
+  const [providersData, setProvidersData] = useState({}); // State for providersData
+
+  const updateProvidersData = (movieId, data) => {
+    setProvidersData((prevData) => ({
+      ...prevData,
+      [movieId]: data,
+    }));
+  };
+
   return (
     <GlobalProvider>
       <Router>
@@ -25,8 +35,15 @@ function App() {
           <Route path='/' element={<Landing />} />
           <Route path='/watched' element={<Watched />} />
           <Route path='/add' element={<Add />} />
-          <Route path='/toprated' element={<TopRated />} />
-          <Route path='/watchlist' element={<WatchList />} />
+          <Route
+            path='/toprated'
+            element={<TopRated updateProvidersData={updateProvidersData} />}
+          />
+          {/* Pass providersData to the WatchList component */}
+          <Route
+            path='/watchlist'
+            element={<WatchList providersData={providersData} />}
+          />
         </Routes>
       </Router>
     </GlobalProvider>

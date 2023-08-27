@@ -3,12 +3,12 @@ import '../styles/api-call.css';
 import Modal from '../modals/Modal';
 import MovieFetcher from './MovieFetcher'; // Import the new component
 
-const apiKey = import.meta.env.VITE_TMDB_KEY;
 const token = import.meta.env.VITE_TMDB_TOKEN;
 
 const ApiCall = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [providersData, setProvidersData] = useState({}); // State for providersData
 
   const options = {
     method: 'GET',
@@ -16,6 +16,13 @@ const ApiCall = () => {
       accept: 'application/json',
       Authorization: `Bearer ${token}`,
     },
+  };
+
+  const updateProvidersData = (movieId, data) => {
+    setProvidersData((prevData) => ({
+      ...prevData,
+      [movieId]: data,
+    }));
   };
 
   const fetchMovies = () => {
@@ -64,11 +71,19 @@ const ApiCall = () => {
             isOpen={selectedMovie !== null}
             onClose={closeMovieDetails}
             movie={selectedMovie}
+            updateProvidersData={updateProvidersData}
           />
         )}
       </div>
 
       <p className='attribute'>Provider Data supplied by JustWatch</p>
+      {selectedMovie && (
+        <MovieFetcher
+          movieId={selectedMovie.id}
+          options={options}
+          updateProvidersData={updateProvidersData}
+        />
+      )}
     </div>
   );
 };

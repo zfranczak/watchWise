@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
+import Modal from '../modals/Modal';
 import MovieFetcher from './MovieFetcher'; // Import the new component
 
 const token = import.meta.env.VITE_TMDB_TOKEN;
@@ -8,6 +9,7 @@ const Add = () => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const { watchlist, addMovieToWatchlist } = useContext(GlobalContext);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   const onChange = (e) => {
     setQuery(e.target.value);
@@ -84,12 +86,20 @@ const Add = () => {
                   )}
                 </div>
                 {/* Pass the movie ID to MovieFetcher */}
-                <MovieFetcher movieId={movie.id} />
+                <MovieFetcher movieId={movie.id} options={options} />
               </div>
             ))}
           </div>
         </div>
       </div>
+      {/* Display the Modal when selectedMovie is not null */}
+      {selectedMovie && (
+        <Modal
+          isOpen={selectedMovie !== null}
+          onClose={() => setSelectedMovie(null)}
+          movie={selectedMovie}
+        />
+      )}
     </div>
   );
 };
