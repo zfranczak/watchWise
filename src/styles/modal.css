@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  overflow-y: auto;
 }
 
 .modal.visible {
@@ -23,8 +24,11 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 70%;
+  max-width: 90%;
+  width: 100%;
   border: white 5px solid;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .close-button {
@@ -34,4 +38,8 @@
   cursor: pointer;
   color: rgb(242, 242, 242);
   max-width: 100px;
+}
+
+.remove-button {
+  background-color: brown;
 }

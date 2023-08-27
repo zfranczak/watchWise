@@ -2,9 +2,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import '../styles/modal.css';
 import { GlobalContext } from '../context/GlobalState';
 
-const Modal = ({ isOpen, onClose, movie }) => {
+const Modal = ({ isOpen, onClose, movie, updateProvidersData }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const { watchlist, addMovieToWatchlist } = useContext(GlobalContext);
+  const { watchlist, addMovieToWatchlist, removeMovieFromWatchlist } =
+    useContext(GlobalContext);
 
   useEffect(() => {
     setIsVisible(isOpen);
@@ -51,7 +52,15 @@ const Modal = ({ isOpen, onClose, movie }) => {
         <p>{movie.release_date.substring(0, 4)}</p>
 
         {isMovieInWatchlist ? (
-          <p>This movie is already in your watchlist.</p>
+          <div className='controls'>
+            <p>This movie is already in your watchlist.</p>
+            <button
+              className='remove-button'
+              onClick={() => removeMovieFromWatchlist(movie.id)}
+            >
+              Remove from Watchlist
+            </button>
+          </div>
         ) : (
           <div className='controls'>
             <button className='btn' onClick={handleAddToWatchlist}>
@@ -71,7 +80,6 @@ const Modal = ({ isOpen, onClose, movie }) => {
                 />
               </div>
             ))}
-          {/* {console.log(movie.providers)} */}
         </div>
         {/* Additional movie details */}
       </div>
