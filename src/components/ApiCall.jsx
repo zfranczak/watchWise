@@ -2,12 +2,12 @@ import React, { useState, useEffect, useContext } from 'react';
 import '../styles/api-call.css';
 import Modal from '../modals/Modal';
 import MovieFetcher from './MovieFetcher';
-import { GlobalContext } from '../context/GlobalState'; // Import the GlobalContext
+import { GlobalContext } from '../context/GlobalState';
 
 const token = import.meta.env.VITE_TMDB_TOKEN;
 
 const ApiCall = () => {
-  const { addMovieToWatchlist, watchlist } = useContext(GlobalContext); // Destructure watchlist from the context
+  const { addMovieToWatchlist, watchlist } = useContext(GlobalContext);
 
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);

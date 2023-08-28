@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import Modal from '../modals/Modal';
-import MovieFetcher from './MovieFetcher'; // Import the new component
+import MovieFetcher from './MovieFetcher';
 
 const token = import.meta.env.VITE_TMDB_TOKEN;
 
