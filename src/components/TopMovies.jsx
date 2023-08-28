@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { GlobalContext } from '../context/GlobalState';
 import Modal from '../modals/Modal';
 import MovieFetcher from './MovieFetcher';
 
 const token = import.meta.env.VITE_TMDB_TOKEN;
 
 const TopMovies = () => {
+  const { watchlist, addMovieToWatchlist } = useContext(GlobalContext);
+
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [providersData, setProvidersData] = useState({});
@@ -42,27 +45,49 @@ const TopMovies = () => {
 
   const openMovieDetails = (movie) => {
     setSelectedMovie(movie);
+    document.body.classList.add('no-scroll');
   };
 
   const closeMovieDetails = () => {
     setSelectedMovie(null);
+    document.body.classList.remove('no-scroll');
+  };
+
+  const isMovieInWatchlist = (movieId) => {
+    return watchlist.some((watchlistMovie) => watchlistMovie.id === movieId);
   };
 
   return (
     <div>
       <div className='movie-block'>
         {movies.map((movie) => (
-          <div
-            key={movie.id}
-            className='single-movie'
-            onClick={() => openMovieDetails(movie)}
-          >
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
-              className='movie-poster'
-            />
+          <div key={movie.id} className='single-movie'>
+            <div className='movie-container'>
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+                className='movie-poster'
+                onClick={() => openMovieDetails(movie)}
+              />
+            </div>
             <h2 className='movie-title'>{movie.title}</h2>
+            <p className='movie-rating'>
+              Rating: {movie.vote_average.toFixed(1)}
+            </p>
+            <div className='controls'>
+              {isMovieInWatchlist(movie.id) ? (
+                <button className='btn' disabled>
+                  Added to Watchlist
+                </button>
+              ) : (
+                <button
+                  className='btn'
+                  onClick={() => addMovieToWatchlist(movie)}
+                >
+                  Add to Watchlist
+                </button>
+              )}
+            </div>
           </div>
         ))}
         {selectedMovie && (
@@ -74,7 +99,6 @@ const TopMovies = () => {
           />
         )}
       </div>
-
       <p className='attribute'>Provider Data supplied by JustWatch</p>
       {selectedMovie && (
         <MovieFetcher

@@ -3,7 +3,7 @@ import { GlobalContext } from '../context/GlobalState';
 import Modal from '../modals/Modal';
 
 const Watched = () => {
-  const { watched, moveMovieToWatchlist, removeMovieFromWatchlist } =
+  const { watched, moveMovieToWatchlist, removeMovieFromWatched } =
     useContext(GlobalContext);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
@@ -17,6 +17,7 @@ const Watched = () => {
       <ul className='movie-list'>
         {watched.map((movie) => (
           <li key={movie.id} className='watched-movie movie-box'>
+            {/* Movie Info */}
             <div className='movie-info' onClick={() => openMovieDetails(movie)}>
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -31,16 +32,11 @@ const Watched = () => {
                 <p className='movie-rating'>Rating: {movie.vote_average}</p>
               </div>
             </div>
+            {/* Buttons */}
             <div className='buttons-container'>
               <button
-                className='move-to-watchlist-button'
-                onClick={() => moveMovieToWatchlist(movie.id)} // Use the correct function
-              >
-                Move to Watchlist
-              </button>
-              <button
                 className='remove-button'
-                onClick={() => removeMovieFromWatchlist(movie.id)}
+                onClick={() => removeMovieFromWatched(movie.id)} // Use the correct function
               >
                 Remove
               </button>

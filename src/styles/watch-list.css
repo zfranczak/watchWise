@@ -52,8 +52,9 @@ li {
 }
 
 .move-to-watched-button,
-.move-to-watchlist-button {
-  background-color: green;
+.move-to-watchlist-button,
+.add-button {
+  background-color: #009f50;
 }
 
 .movie-list {
