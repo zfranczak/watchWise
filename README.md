@@ -1,6 +1,7 @@
 # Watch Wise
 
 Watch Wise is a web application designed to help movie enthusiasts manage and discover films for their movie nights. This documentation provides an overview of the app's structure and dependencies.
+[LIVE DEMO!](https://chic-semolina-076749.netlify.app/)
 
 ## Table of Contents
 
