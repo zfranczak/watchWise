@@ -36,7 +36,7 @@ const Watched = () => {
             <div className='buttons-container'>
               <button
                 className='remove-button'
-                onClick={() => removeMovieFromWatched(movie.id)} // Use the correct function
+                onClick={() => removeMovieFromWatched(movie.id)}
               >
                 Remove
               </button>

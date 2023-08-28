@@ -11,13 +11,13 @@ import {
   Route,
   Routes,
   Navigate,
-} from 'react-router-dom'; // Updated import
+} from 'react-router-dom';
 import TopRated from './components/TopRated';
 
 import { GlobalProvider } from './context/GlobalState';
 
 function App() {
-  const [providersData, setProvidersData] = useState({}); // State for providersData
+  const [providersData, setProvidersData] = useState({});
 
   const updateProvidersData = (movieId, data) => {
     setProvidersData((prevData) => ({
@@ -39,7 +39,7 @@ function App() {
             path='/toprated'
             element={<TopRated updateProvidersData={updateProvidersData} />}
           />
-          {/* Pass providersData to the WatchList component */}
+
           <Route
             path='/watchlist'
             element={<WatchList providersData={providersData} />}
