@@ -14,13 +14,34 @@
   -webkit-text-size-adjust: 100%;
 }
 
+h1 {
+  color: #22b6d3;
+}
+
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #22b6d3;
   text-decoration: inherit;
 }
 a:hover {
   color: #ffffff;
+}
+
+input {
+  background-color: #22b6d3;
+  font-size: 18px;
+  font-weight: 500;
+  min-height: 3rem;
+  padding: 20px;
+  margin: 50px auto;
+  border-radius: 5px;
+  border: 1px rgb(255, 255, 255) solid;
+  width: 70vw;
+  max-width: 600px;
+}
+
+input::placeholder {
+  color: white;
 }
 
 body {
@@ -44,22 +65,23 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  border-color: black;
 }
 button:hover {
-  border-color: #edeeff;
+  border-color: #000000;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
     color: #213547;
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #22b6d3;
   }
   button {
     background-color: #f9f9f9;

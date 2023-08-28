@@ -1,0 +1,70 @@
+li {
+  list-style: none;
+}
+
+.movie-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  background-color: rgb(218, 227, 233);
+  border-radius: 20px;
+  padding: 15px 0;
+}
+
+.poster {
+  height: 150px;
+}
+
+.movie-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  min-width: 500px;
+}
+
+.movie-details {
+  align-self: center;
+  flex-grow: 2;
+  margin: 0;
+}
+
+.movie-title {
+  margin: 0;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.move-to-watchlist-button,
+.add-button {
+  background-color: #009f50;
+}
+
+.move-to-watched-button {
+  background-color: #00679f;
+}
+
+.movie-list {
+  min-width: 800px;
+
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
