@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
-import '../styles/api-call.css';
+import { GlobalContext } from '../context/GlobalState';
 import Modal from '../modals/Modal';
 import MovieFetcher from './MovieFetcher';
-import { GlobalContext } from '../context/GlobalState'; // Import the GlobalContext
 
 const token = import.meta.env.VITE_TMDB_TOKEN;
 
-const ApiCall = () => {
-  const { addMovieToWatchlist, watchlist } = useContext(GlobalContext); // Destructure watchlist from the context
+const TopMovies = () => {
+  const { watchlist, addMovieToWatchlist } = useContext(GlobalContext);
 
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
@@ -28,9 +27,9 @@ const ApiCall = () => {
     }));
   };
 
-  const fetchMovies = () => {
+  const fetchTopMovies = () => {
     fetch(
-      'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1',
+      'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
       options
     )
       .then((response) => response.json())
@@ -41,7 +40,7 @@ const ApiCall = () => {
   };
 
   useEffect(() => {
-    fetchMovies();
+    fetchTopMovies();
   }, []);
 
   const openMovieDetails = (movie) => {
@@ -63,12 +62,14 @@ const ApiCall = () => {
       <div className='movie-block'>
         {movies.map((movie) => (
           <div key={movie.id} className='single-movie'>
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
-              className='movie-poster'
-              onClick={() => openMovieDetails(movie)}
-            />
+            <div className='movie-container'>
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+                className='movie-poster'
+                onClick={() => openMovieDetails(movie)}
+              />
+            </div>
             <h2 className='movie-title'>{movie.title}</h2>
             <p className='movie-rating'>
               Rating: {movie.vote_average.toFixed(1)}
@@ -98,7 +99,6 @@ const ApiCall = () => {
           />
         )}
       </div>
-
       <p className='attribute'>Provider Data supplied by JustWatch</p>
       {selectedMovie && (
         <MovieFetcher
@@ -111,4 +111,4 @@ const ApiCall = () => {
   );
 };
 
-export default ApiCall;
+export default TopMovies;

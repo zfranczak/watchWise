@@ -1,6 +1,7 @@
 import React from 'react';
 import Trending from './TopRated';
 import Add from './Add';
+import TopMovies from './TopMovies';
 
 const Landing = ({}) => {
   return (
@@ -13,6 +14,8 @@ const Landing = ({}) => {
       </h3>
       {/* <Trending /> */}
       <Add />
+      <h2>See What's Popular Right Now!</h2>
+      <TopMovies />
     </div>
   );
 };

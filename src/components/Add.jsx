@@ -45,6 +45,16 @@ const Add = () => {
     return watchlist.some((watchlistMovie) => watchlistMovie.id === movieId);
   };
 
+  const openMovieDetails = (movie) => {
+    setSelectedMovie(movie);
+    document.body.classList.add('no-scroll');
+  };
+
+  const closeMovieDetails = () => {
+    setSelectedMovie(null);
+    document.body.classList.remove('no-scroll');
+  };
+
   return (
     <div className='add-page'>
       <div className='container'>
@@ -65,12 +75,15 @@ const Add = () => {
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt={movie.title}
                   className='movie-poster'
+                  onClick={() => openMovieDetails(movie)}
                 />
                 <h2 className='movie-title'>{movie.title}</h2>
-                <p className='movie-release'>
+                {/* <p className='movie-release'>
                   {movie.release_date.substring(0, 4)}
+                </p> */}
+                <p className='movie-rating'>
+                  Rating: {movie.vote_average.toFixed(1)}
                 </p>
-                <p className='movie-rating'>Rating: {movie.vote_average}</p>
                 <div className='controls'>
                   {isMovieInWatchlist(movie.id) ? (
                     <button className='btn' disabled>
@@ -85,6 +98,7 @@ const Add = () => {
                     </button>
                   )}
                 </div>
+
                 {/* Pass the movie ID to MovieFetcher */}
                 <MovieFetcher movieId={movie.id} options={options} />
               </div>
@@ -96,7 +110,7 @@ const Add = () => {
       {selectedMovie && (
         <Modal
           isOpen={selectedMovie !== null}
-          onClose={() => setSelectedMovie(null)}
+          onClose={closeMovieDetails}
           movie={selectedMovie}
         />
       )}

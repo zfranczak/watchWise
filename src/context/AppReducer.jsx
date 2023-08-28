@@ -12,6 +12,23 @@ export const AppReducer = (state, action) => {
           (movie) => movie.id !== action.payload
         ),
       };
+    case 'MOVE_TO_WATCHED':
+      const movieToMove = state.watchlist.find(
+        (movie) => movie.id === action.payload
+      );
+
+      return {
+        ...state,
+        watchlist: state.watchlist.filter(
+          (movie) => movie.id !== action.payload
+        ),
+        watched: [...state.watched, movieToMove],
+      };
+    case 'REMOVE_FROM_WATCHED':
+      return {
+        ...state,
+        watched: state.watched.filter((movie) => movie.id !== action.payload),
+      };
     default:
       return state;
   }
