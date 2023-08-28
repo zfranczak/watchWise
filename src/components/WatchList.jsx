@@ -4,7 +4,8 @@ import '../styles/watch-list.css';
 import Modal from '../modals/Modal';
 
 const WatchList = ({ providersData }) => {
-  const { watchlist, removeMovieFromWatchlist } = useContext(GlobalContext);
+  const { watchlist, removeMovieFromWatchlist, moveMovieToWatched } =
+    useContext(GlobalContext);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   const openMovieDetails = (movie) => {
@@ -14,14 +15,14 @@ const WatchList = ({ providersData }) => {
   return (
     <div>
       <h1>Watch List</h1>
-      <ul>
+      <ul className='movie-list'>
         {watchlist.map((movie) => (
-          <li key={movie.id} className='watchlist-movie'>
+          <li key={movie.id} className='watchlist-movie movie-box'>
             <div className='movie-info' onClick={() => openMovieDetails(movie)}>
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
-                className='watchlist-movie-poster'
+                className='watchlist-movie-poster poster'
               />
               <div className='movie-details'>
                 <h2 className='movie-title'>{movie.title}</h2>
@@ -31,12 +32,20 @@ const WatchList = ({ providersData }) => {
                 <p className='movie-rating'>Rating: {movie.vote_average}</p>
               </div>
             </div>
-            <button
-              className='remove-button'
-              onClick={() => removeMovieFromWatchlist(movie.id)}
-            >
-              Remove
-            </button>
+            <div className='buttons-container'>
+              <button
+                className='move-to-watched-button'
+                onClick={() => moveMovieToWatched(movie.id)}
+              >
+                Move to Watched
+              </button>
+              <button
+                className='remove-button'
+                onClick={() => removeMovieFromWatchlist(movie.id)}
+              >
+                Remove
+              </button>
+            </div>
           </li>
         ))}
       </ul>

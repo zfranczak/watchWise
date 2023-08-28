@@ -8,3 +8,7 @@
 .search-btn {
   color: white;
 }
+
+.no-scroll {
+  overflow: hidden;
+}
