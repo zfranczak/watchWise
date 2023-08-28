@@ -51,10 +51,13 @@ li {
   gap: 10px;
 }
 
-.move-to-watched-button,
 .move-to-watchlist-button,
 .add-button {
   background-color: #009f50;
+}
+
+.move-to-watched-button {
+  background-color: #00679f;
 }
 
 .movie-list {
