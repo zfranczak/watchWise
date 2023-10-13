@@ -6,6 +6,7 @@ const initialState = {
   watchlist: localStorage.getItem('watchlist')
     ? JSON.parse(localStorage.getItem('watchlist'))
     : [],
+  watched: [],
 };
 
 // Create context
