@@ -61,3 +61,21 @@ body {
 .btn:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+.mobile-menu-trigger {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .nav-locations {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}

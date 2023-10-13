@@ -1,8 +1,16 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/navigation.css';
+import Hamburger from './Hamburger';
 
 const Navigation = () => {
+  const [mobileIsOpen, setMobileIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMobileIsOpen((open) => !open);
+    console.log('Mobile Menu is Open');
+  };
   return (
     <header className='nav'>
       <div className='container'>
@@ -12,6 +20,12 @@ const Navigation = () => {
               WatchWise
             </Link>
           </div>
+
+          <ul>
+            <div className='hamburger' onClick={toggleMenu}>
+              <Hamburger />
+            </div>
+          </ul>
           <ul className='nav-locations'>
             <li>
               <Link to='/watchList'>Watch List</Link>
