@@ -37,9 +37,7 @@ const Navigation = () => {
               <Link to='/toprated'>Top Rated</Link>
             </li>
             <li>
-              <Link to='/add' className='btn search-btn'>
-                Search for Movies
-              </Link>
+              <Link to='/add'>Search for Movies</Link>
             </li>
           </ul>
         </div>
