@@ -21,12 +21,14 @@ const Navigation = () => {
             </Link>
           </div>
 
-          <ul>
-            <div className='hamburger' onClick={toggleMenu}>
-              <Hamburger />
-            </div>
-          </ul>
-          <ul className='nav-locations'>
+          {/* <input type='checkbox' className='toggle-menu' /> */}
+          <div className='hamburger' onClick={toggleMenu}>
+            <Hamburger />
+          </div>
+
+          <ul
+            className={`nav-locations ${mobileIsOpen ? 'mobile-is-open' : ''}`}
+          >
             <li>
               <Link to='/watchList'>Watch List</Link>
             </li>

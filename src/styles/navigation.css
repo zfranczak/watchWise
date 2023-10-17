@@ -16,7 +16,7 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
-  padding: 0 3rem;
+  padding: 0;
   background-color: rgb(0, 0, 0);
   min-height: 50px;
   z-index: 999;
@@ -26,6 +26,7 @@ body {
 .nav-locations {
   display: flex;
   flex-direction: row;
+  padding: 0 2rem;
 
   justify-content: center;
 }
@@ -51,6 +52,7 @@ body {
 
 .site-title {
   font-size: 1.2rem;
+  padding: 1rem;
   font-weight: 800;
   color: #edeeff;
 }
@@ -79,17 +81,40 @@ body {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.mobile-menu-trigger {
-  display: none;
-}
-
 .hamburger {
   display: none;
+  padding: 0 2rem;
+  z-index: 2;
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .nav-locations {
     display: none;
+  }
+
+  .mobile-is-open {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: black;
+    width: 250px;
+    height: 100%;
+
+    padding: 60px 0 0 0;
+  }
+
+  .mobile-is-open li {
+    width: 100%;
+  }
+
+  .mobile-is-open li a {
+    padding: 20px;
+    font-size: 20px;
+    box-shadow: 0 -1px 0 #22b6d3 inset;
   }
 
   .hamburger {
