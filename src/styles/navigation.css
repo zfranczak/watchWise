@@ -101,7 +101,7 @@ body {
     top: 0;
     right: 0;
     background: black;
-    width: 250px;
+    width: 170px;
     height: 100%;
 
     padding: 60px 0 0 0;
@@ -112,7 +112,7 @@ body {
   }
 
   .mobile-is-open li a {
-    padding: 20px;
+    padding: 16px;
     font-size: 16px;
     box-shadow: 0 -1px 0 #22b6d3 inset;
   }
