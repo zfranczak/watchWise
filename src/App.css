@@ -33,3 +33,7 @@
 .btn:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+::placeholder {
+  text-align: center;
+}

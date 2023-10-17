@@ -30,7 +30,7 @@ li {
   flex-direction: row;
   justify-content: flex-start;
 
-  min-width: 500px;
+  /* min-width: 500px; */
 }
 
 .movie-details {
@@ -61,7 +61,7 @@ li {
 }
 
 .movie-list {
-  min-width: 800px;
+  /* min-width: 800px; */
 
   margin: 0;
   display: flex;

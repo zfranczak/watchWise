@@ -9,37 +9,47 @@ const Navigation = () => {
 
   const toggleMenu = () => {
     setMobileIsOpen((open) => !open);
-    console.log('Mobile Menu is Open');
+  };
+  const closeMenu = () => {
+    setMobileIsOpen(false);
   };
   return (
     <header className='nav'>
       <div className='container'>
         <div className='inner-content'>
           <div className='site-title'>
-            <Link to='/' className='site-title'>
+            <Link to='/' className='site-title' onClick={closeMenu}>
               WatchWise
             </Link>
           </div>
 
           {/* <input type='checkbox' className='toggle-menu' /> */}
           <div className='hamburger' onClick={toggleMenu}>
-            <Hamburger />
+            <Hamburger mobileIsOpen={mobileIsOpen} />
           </div>
 
           <ul
             className={`nav-locations ${mobileIsOpen ? 'mobile-is-open' : ''}`}
           >
             <li>
-              <Link to='/watchList'>Watch List</Link>
+              <Link to='/watchList' onClick={closeMenu}>
+                Watch List
+              </Link>
             </li>
             <li>
-              <Link to='/watched'>Watched</Link>
+              <Link to='/watched' onClick={closeMenu}>
+                Watched
+              </Link>
             </li>
             <li>
-              <Link to='/toprated'>Top Rated</Link>
+              <Link to='/toprated' onClick={closeMenu}>
+                Top Rated
+              </Link>
             </li>
             <li>
-              <Link to='/add'>Search for Movies</Link>
+              <Link to='/add' onClick={closeMenu}>
+                Search for Movies
+              </Link>
             </li>
           </ul>
         </div>
