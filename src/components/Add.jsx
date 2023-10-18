@@ -82,7 +82,7 @@ const Add = () => {
                   {movie.release_date.substring(0, 4)}
                 </p> */}
                 <p className='movie-rating'>
-                  Rating: {movie.vote_average.toFixed(1)}
+                  TMDB Rating: {movie.vote_average.toFixed(1)}
                 </p>
                 <div className='controls'>
                   {isMovieInWatchlist(movie.id) ? (

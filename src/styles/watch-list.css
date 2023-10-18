@@ -3,34 +3,42 @@ li {
 }
 
 .movie-box {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
   gap: 10px;
   margin-top: 10px;
   background-color: #dae3e9;
   border-radius: 20px;
-  padding: 15px 0;
-}
-
-.poster {
-  height: 150px;
+  padding: 15px 30px;
 }
 
 .movie-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+
+.poster {
+  height: 200px;
+  padding: 0 10px;
+}
+
+/* .movie-container {
+  display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   margin: 0;
-}
+} */
 
 .movie-info {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  width: 300px;
 
   /* min-width: 500px; */
+}
+.second-container {
+  /* background: #00679f; */
 }
 
 .movie-details {
@@ -45,9 +53,9 @@ li {
 
 .buttons-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-
+  padding-top: 10px;
   gap: 10px;
 }
 
@@ -66,5 +74,6 @@ li {
   margin: 0;
   display: flex;
   justify-content: space-evenly;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
 }

@@ -71,7 +71,7 @@ const ApiCall = () => {
             />
             <h2 className='movie-title'>{movie.title}</h2>
             <p className='movie-rating'>
-              Rating: {movie.vote_average.toFixed(1)}
+              TMDB Rating: {movie.vote_average.toFixed(1)}
             </p>
             <div className='controls'>
               {isMovieInWatchlist(movie.id) ? (

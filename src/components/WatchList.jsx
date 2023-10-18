@@ -14,22 +14,31 @@ const WatchList = ({ providersData }) => {
 
   return (
     <div>
-      <h1>Watch List</h1>
+      <h1>My Watch List</h1>
       <ul className='movie-list'>
         {watchlist.map((movie) => (
           <li key={movie.id} className='watchlist-movie movie-box'>
-            <div className='movie-info' onClick={() => openMovieDetails(movie)}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-                className='watchlist-movie-poster poster'
-              />
-              <div className='movie-details'>
-                <h2 className='movie-title'>{movie.title}</h2>
-                <p className='movie-release'>
-                  {movie.release_date.substring(0, 4)}
-                </p>
-                <p className='movie-rating'>Rating: {movie.vote_average}</p>
+            <div className='movie-container'>
+              <div
+                className='movie-info'
+                onClick={() => openMovieDetails(movie)}
+              >
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.title}
+                  className='watchlist-movie-poster poster'
+                />
+                <div className='second-container'>
+                  <div className='movie-details'>
+                    <h2 className='movie-title'>{movie.title}</h2>
+                    <p className='movie-release'>
+                      {movie.release_date.substring(0, 4)}
+                    </p>
+                    <p className='movie-rating'>
+                      TMDB Rating: {movie.vote_average}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
             <div className='buttons-container'>
