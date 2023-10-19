@@ -5,7 +5,8 @@ li {
 .movie-box {
   gap: 10px;
   margin-top: 10px;
-  background-color: #dae3e9;
+  background-color: #494949;
+  min-width: 350px;
   border-radius: 20px;
   padding: 15px 30px;
 }
@@ -70,7 +71,7 @@ li {
 
 .movie-list {
   /* min-width: 800px; */
-
+  gap: 10px;
   margin: 0;
   display: flex;
   justify-content: space-evenly;
