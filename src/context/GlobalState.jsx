@@ -6,7 +6,9 @@ const initialState = {
   watchlist: localStorage.getItem('watchlist')
     ? JSON.parse(localStorage.getItem('watchlist'))
     : [],
-  watched: [],
+  watched: localStorage.getItem('watched')
+    ? JSON.parse(localStorage.getItem('watched'))
+    : [],
 };
 
 // Create context
@@ -18,7 +20,8 @@ export const GlobalProvider = (props) => {
 
   useEffect(() => {
     localStorage.setItem('watchlist', JSON.stringify(state.watchlist));
-  }, [state]);
+    localStorage.setItem('watched', JSON.stringify(state.watched));
+  }, [state.watchlist, state.watched]);
 
   // Actions
   const addMovieToWatchlist = (movie) => {
