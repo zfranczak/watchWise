@@ -42,11 +42,23 @@ const Modal = ({ isOpen, onClose, movie, updateProvidersData }) => {
           Close
         </button>
 
-        <img
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-          alt={movie.title}
-          className='movie-poster'
-        />
+        {movie.poster_path ? (
+          <img
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            alt={movie.title}
+            className='movie-poster'
+            onClick={() => openMovieDetails(movie)}
+          />
+        ) : (
+          <div className='placeholder-poster'>
+            <img
+              src='/no-poster.png'
+              alt='No Poster Available'
+              className='movie-poster'
+              onClick={() => openMovieDetails(movie)}
+            />
+          </div>
+        )}
         <h2>{movie.title}</h2>
         <h3>{movie.overview}</h3>
         <p>{movie.release_date.substring(0, 4)}</p>

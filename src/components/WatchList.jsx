@@ -23,11 +23,23 @@ const WatchList = ({ providersData }) => {
                 className='movie-info'
                 onClick={() => openMovieDetails(movie)}
               >
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt={movie.title}
-                  className='watchlist-movie-poster poster'
-                />
+                {movie.poster_path ? (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    alt={movie.title}
+                    className='movie-poster'
+                    onClick={() => openMovieDetails(movie)}
+                  />
+                ) : (
+                  <div className='placeholder-poster'>
+                    <img
+                      src='/no-poster.png'
+                      alt='No Poster Available'
+                      className='movie-poster'
+                      onClick={() => openMovieDetails(movie)}
+                    />
+                  </div>
+                )}
                 <div className='second-container'>
                   <div className='movie-details'>
                     <h2 className='movie-title'>{movie.title}</h2>

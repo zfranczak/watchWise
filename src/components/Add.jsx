@@ -71,12 +71,23 @@ const Add = () => {
           <div className='movie-block'>
             {results.map((movie) => (
               <div key={movie.id} className='single-movie'>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt={movie.title}
-                  className='movie-poster'
-                  onClick={() => openMovieDetails(movie)}
-                />
+                {movie.poster_path ? (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    alt={movie.title}
+                    className='movie-poster'
+                    onClick={() => openMovieDetails(movie)}
+                  />
+                ) : (
+                  <div className='placeholder-poster'>
+                    <img
+                      src='/no-poster.png'
+                      alt='No Poster Available'
+                      className='movie-poster'
+                      onClick={() => openMovieDetails(movie)}
+                    />
+                  </div>
+                )}
                 <h2 className='movie-title'>{movie.title}</h2>
                 {/* <p className='movie-release'>
                   {movie.release_date.substring(0, 4)}
