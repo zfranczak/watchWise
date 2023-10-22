@@ -34,7 +34,7 @@ const Modal = ({ isOpen, onClose, movie, updateProvidersData }) => {
 
   return (
     <div
-      className={`modal ${isVisible ? 'visible' : ''}`}
+      className={`modal modal-overlay ${isVisible ? 'visible' : ''}`}
       onClick={handleOverlayClick}
     >
       <div className='modal-content'>
@@ -47,7 +47,6 @@ const Modal = ({ isOpen, onClose, movie, updateProvidersData }) => {
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt={movie.title}
             className='movie-poster'
-            onClick={() => openMovieDetails(movie)}
           />
         ) : (
           <div className='placeholder-poster'>
@@ -55,7 +54,6 @@ const Modal = ({ isOpen, onClose, movie, updateProvidersData }) => {
               src='/no-poster.png'
               alt='No Poster Available'
               className='movie-poster'
-              onClick={() => openMovieDetails(movie)}
             />
           </div>
         )}
