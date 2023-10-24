@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import '../styles/modal.css';
 import { GlobalContext } from '../context/GlobalState';
+import StarRating from '../components/StarRating';
+import MovieCredits from '../components/MovieCredits';
 
 const Modal = ({ isOpen, onClose, movie, updateProvidersData }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [credits, setCredits] = useState([]);
   const { watchlist, addMovieToWatchlist, removeMovieFromWatchlist } =
     useContext(GlobalContext);
 
@@ -59,6 +62,11 @@ const Modal = ({ isOpen, onClose, movie, updateProvidersData }) => {
         )}
         <h2>{movie.title}</h2>
         <h3>{movie.overview}</h3>
+        <MovieCredits credits={credits} movieId={movie.id} />
+        <ul>
+          Credits
+          <li class-name='credits'>{movie.credits}</li>
+        </ul>
         <p>{movie.release_date.substring(0, 4)}</p>
 
         {isMovieInWatchlist ? (

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import '../styles/watch-list.css';
 import Modal from '../modals/Modal';
+// import StarRating from './StarRating';
 
 const WatchList = ({ providersData }) => {
   const { watchlist, removeMovieFromWatchlist, moveMovieToWatched } =
@@ -47,7 +48,8 @@ const WatchList = ({ providersData }) => {
                       {movie.release_date.substring(0, 4)}
                     </p>
                     <p className='movie-rating'>
-                      TMDB Rating: {movie.vote_average}
+                      TMDB Rating: {movie.vote_average.toFixed(1)}
+                      {/* <StarRating tmdbRating={movie.vote_average} /> */}
                     </p>
                   </div>
                 </div>

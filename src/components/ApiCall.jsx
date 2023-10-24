@@ -73,6 +73,7 @@ const ApiCall = () => {
             <p className='movie-rating'>
               TMDB Rating: {movie.vote_average.toFixed(1)}
             </p>
+
             <div className='controls'>
               {isMovieInWatchlist(movie.id) ? (
                 <button className='btn' disabled>
