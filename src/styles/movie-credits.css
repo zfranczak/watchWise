@@ -1,2 +1,12 @@
 .cast-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.cast-actor {
+  padding: 0 10px;
+  border: 1px white solid;
+  border-radius: 2px;
 }
