@@ -51,6 +51,11 @@ const Navigation = () => {
                 Search for Movies
               </Link>
             </li>
+            <li>
+              <Link to='/signup' onClick={closeMenu}>
+                Account
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

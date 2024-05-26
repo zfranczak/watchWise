@@ -3,6 +3,8 @@ import './App.css';
 import Navigation from './components/Navigation';
 import Landing from './components/Landing';
 import ApiCall from './components/ApiCall';
+import SignUp from './components/user-profiles/SignUp';
+import Login from './components/user-profiles/Login';
 import WatchList from './components/WatchList';
 import Watched from './components/Watched';
 import Add from './components/Add';
@@ -33,6 +35,8 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Landing />} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/watched' element={<Watched />} />
           <Route path='/add' element={<Add />} />
           <Route
