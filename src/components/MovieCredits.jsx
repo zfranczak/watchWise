@@ -33,7 +33,7 @@ const MovieCredits = ({ movieId }) => {
 
   return (
     <div>
-      <strong>Credits:</strong>
+      <strong className='credits'>Credits:</strong>
       <ul className='cast-list'>
         {credits.map((actor) => (
           <li className='cast-actor' key={actor.id}>

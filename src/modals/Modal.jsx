@@ -63,10 +63,7 @@ const Modal = ({ isOpen, onClose, movie, updateProvidersData }) => {
         <h2>{movie.title}</h2>
         <h3>{movie.overview}</h3>
         <MovieCredits credits={credits} movieId={movie.id} />
-        <ul>
-          Credits
-          <li class-name='credits'>{movie.credits}</li>
-        </ul>
+
         <p>{movie.release_date.substring(0, 4)}</p>
 
         {isMovieInWatchlist ? (
