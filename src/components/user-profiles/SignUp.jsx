@@ -1,15 +1,28 @@
-import React, { useState } from 'react';
+// src/components/user-profiles/SignUp.js
+import React, { useRef } from 'react';
 import '../../styles/signup.css';
+import { useAuth } from '../../context/AuthContext';
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const confirmPasswordRef = useRef();
+  const { signup } = useAuth();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log({ email, password, confirmPassword });
+    if (passwordRef.current.value !== confirmPasswordRef.current.value) {
+      return alert('Passwords do not match');
+    }
+
+    try {
+      await signup(emailRef.current.value, passwordRef.current.value);
+      alert('Signup successful');
+    } catch (error) {
+      console.error('Failed to create an account', error);
+      alert('Failed to create an account');
+    }
   };
 
   return (
@@ -22,8 +35,7 @@ const SignUp = () => {
             type='email'
             id='email'
             className='input-signup'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            ref={emailRef}
             required
           />
         </div>
@@ -33,8 +45,7 @@ const SignUp = () => {
             type='password'
             id='password'
             className='input-signup'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            ref={passwordRef}
             required
           />
         </div>
@@ -44,8 +55,7 @@ const SignUp = () => {
             type='password'
             id='confirmPassword'
             className='input-signup'
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            ref={confirmPasswordRef}
             required
           />
         </div>

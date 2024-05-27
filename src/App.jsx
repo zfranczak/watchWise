@@ -17,6 +17,7 @@ import {
 import TopRated from './components/TopRated';
 
 import { GlobalProvider } from './context/GlobalState';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   const [providersData, setProvidersData] = useState({});
@@ -29,28 +30,30 @@ function App() {
   };
 
   return (
-    <GlobalProvider>
-      <Router>
-        <Navigation />
+    <AuthProvider>
+      <GlobalProvider>
+        <Router>
+          <Navigation />
 
-        <Routes>
-          <Route path='/' element={<Landing />} />
-          <Route path='/signup' element={<SignUp />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/watched' element={<Watched />} />
-          <Route path='/add' element={<Add />} />
-          <Route
-            path='/toprated'
-            element={<TopRated updateProvidersData={updateProvidersData} />}
-          />
+          <Routes>
+            <Route path='/' element={<Landing />} />
+            <Route path='/signup' element={<SignUp />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/watched' element={<Watched />} />
+            <Route path='/add' element={<Add />} />
+            <Route
+              path='/toprated'
+              element={<TopRated updateProvidersData={updateProvidersData} />}
+            />
 
-          <Route
-            path='/watchlist'
-            element={<WatchList providersData={providersData} />}
-          />
-        </Routes>
-      </Router>
-    </GlobalProvider>
+            <Route
+              path='/watchlist'
+              element={<WatchList providersData={providersData} />}
+            />
+          </Routes>
+        </Router>
+      </GlobalProvider>
+    </AuthProvider>
   );
 }
 

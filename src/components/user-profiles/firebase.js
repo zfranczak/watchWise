@@ -1,28 +1,21 @@
-import firebase from 'firebase/app';
-import 'firebase/auth';
+// src/components/user-profiles/firebase.js
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
 
-const apiKey = import.meta.env.VITE_FIREBASE_apiKey;
-const authDomain = import.meta.env.VITE_FIREBASE_authDomain;
-const projectId = import.meta.env.VITE_FIREBASE_projectId;
-const storageBucket = import.meta.env.VITE_FIREBASE_storageBucket;
-const messagingSenderId = import.meta.env.VITE_FIREBASE_messagingSenderId;
-const appId = import.meta.env.VITE_FIREBASE_appId;
-
-// Web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: apiKey,
-  authDomain: authDomain,
-  projectId: projectId,
-  storageBucket: storageBucket,
-  messagingSenderId: messagingSenderId,
-  appId: appId,
+  apiKey: import.meta.env.VITE_FIREBASE_apiKey,
+  authDomain: import.meta.env.VITE_FIREBASE_authDomain,
+  projectId: import.meta.env.VITE_FIREBASE_projectId,
+  storageBucket: import.meta.env.VITE_FIREBASE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_messagingSenderId,
+  appId: import.meta.env.VITE_FIREBASE_appId,
 };
 
 // Initialize Firebase
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
 
-// Initialize Firestore and Auth
-const auth = firebaseApp.auth();
+// Initialize Auth
+const auth = getAuth(firebaseApp);
 
 export { auth };
 export default firebaseConfig;
