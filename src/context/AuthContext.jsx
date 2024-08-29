@@ -1,10 +1,10 @@
 // src/context/AuthContext.js
 import React, { useContext, useState, useEffect } from 'react';
-// import { auth } from '../components/user-profiles/firebase';
-// import {
-//   createUserWithEmailAndPassword,
-//   onAuthStateChanged,
-// } from 'firebase/auth';
+import { auth } from '../components/user-profiles/firebase';
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from 'firebase/auth';
 
 const AuthContext = React.createContext();
 
