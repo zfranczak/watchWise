@@ -42,7 +42,6 @@ const MovieFetcher = ({ movieId, options, updateProvidersData }) => {
   return (
     <div>
       <h2>{movieDetails.title}</h2>
-      {/* Display additional movie details */}
     </div>
   );
 };

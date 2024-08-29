@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import Modal from '../modals/Modal';
-import MovieFetcher from './MovieFetcher'; // Import the new component
+import MovieFetcher from './MovieFetcher';
+import StarRating from './StarRating';
 
 const token = import.meta.env.VITE_TMDB_TOKEN;
 
@@ -71,18 +72,30 @@ const Add = () => {
           <div className='movie-block'>
             {results.map((movie) => (
               <div key={movie.id} className='single-movie'>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt={movie.title}
-                  className='movie-poster'
-                  onClick={() => openMovieDetails(movie)}
-                />
+                {movie.poster_path ? (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    alt={movie.title}
+                    className='movie-poster'
+                    onClick={() => openMovieDetails(movie)}
+                  />
+                ) : (
+                  <div className='placeholder-poster'>
+                    <img
+                      src='/no-poster.png'
+                      alt='No Poster Available'
+                      className='movie-poster'
+                      onClick={() => openMovieDetails(movie)}
+                    />
+                  </div>
+                )}
                 <h2 className='movie-title'>{movie.title}</h2>
                 {/* <p className='movie-release'>
                   {movie.release_date.substring(0, 4)}
                 </p> */}
                 <p className='movie-rating'>
-                  Rating: {movie.vote_average.toFixed(1)}
+                  TMDB Rating: {movie.vote_average.toFixed(1)}
+                  <StarRating />
                 </p>
                 <div className='controls'>
                   {isMovieInWatchlist(movie.id) ? (

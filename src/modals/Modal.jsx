@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import '../styles/modal.css';
 import { GlobalContext } from '../context/GlobalState';
+import StarRating from '../components/StarRating';
+import MovieCredits from '../components/MovieCredits';
 
 const Modal = ({ isOpen, onClose, movie, updateProvidersData }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [credits, setCredits] = useState([]);
   const { watchlist, addMovieToWatchlist, removeMovieFromWatchlist } =
     useContext(GlobalContext);
 
@@ -34,7 +37,7 @@ const Modal = ({ isOpen, onClose, movie, updateProvidersData }) => {
 
   return (
     <div
-      className={`modal ${isVisible ? 'visible' : ''}`}
+      className={`modal modal-overlay ${isVisible ? 'visible' : ''}`}
       onClick={handleOverlayClick}
     >
       <div className='modal-content'>
@@ -42,13 +45,25 @@ const Modal = ({ isOpen, onClose, movie, updateProvidersData }) => {
           Close
         </button>
 
-        <img
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-          alt={movie.title}
-          className='movie-poster'
-        />
+        {movie.poster_path ? (
+          <img
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            alt={movie.title}
+            className='movie-poster'
+          />
+        ) : (
+          <div className='placeholder-poster'>
+            <img
+              src='/no-poster.png'
+              alt='No Poster Available'
+              className='movie-poster'
+            />
+          </div>
+        )}
         <h2>{movie.title}</h2>
         <h3>{movie.overview}</h3>
+        <MovieCredits credits={credits} movieId={movie.id} />
+
         <p>{movie.release_date.substring(0, 4)}</p>
 
         {isMovieInWatchlist ? (
@@ -81,7 +96,6 @@ const Modal = ({ isOpen, onClose, movie, updateProvidersData }) => {
               </div>
             ))}
         </div>
-        {/* Additional movie details */}
       </div>
     </div>
   );

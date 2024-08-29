@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import Modal from '../modals/Modal';
 import MovieFetcher from './MovieFetcher';
+import StarRating from './StarRating';
 
 const token = import.meta.env.VITE_TMDB_TOKEN;
 
@@ -72,7 +73,8 @@ const TopMovies = () => {
             </div>
             <h2 className='movie-title'>{movie.title}</h2>
             <p className='movie-rating'>
-              Rating: {movie.vote_average.toFixed(1)}
+              TMDB Rating: {movie.vote_average.toFixed(1)}
+              <StarRating tmdbRating={movie.vote_average} />
             </p>
             <div className='controls'>
               {isMovieInWatchlist(movie.id) ? (

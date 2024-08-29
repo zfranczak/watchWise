@@ -1,5 +1,5 @@
 import React from 'react';
-import Trending from './TopRated';
+// import Trending from './TopRated';
 import Add from './Add';
 import TopMovies from './TopMovies';
 

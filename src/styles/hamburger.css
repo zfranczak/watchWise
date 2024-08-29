@@ -1,0 +1,36 @@
+.hamburger-menu {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column nowrap;
+  z-index: 10;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+
+.burger {
+  width: 2rem;
+  height: 0.25rem;
+  border-radius: 10px;
+  background-color: white;
+  transform-origin: 1px;
+  transition: all 0.3s linear;
+}
+
+.mobile-is-open .burger1 {
+  transform: rotate(-45deg);
+}
+
+.mobile-is-open .burger2 {
+  opacity: 0;
+}
+
+.mobile-is-open .burger3 {
+  transform: rotate(45deg) translate(-20px, -20px);
+}
+
+.mobile-is-open {
+  display: block;
+}

@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 #root {
   max-width: 1280px;
   margin: 50px auto 0;
@@ -5,10 +10,30 @@
   text-align: center;
 }
 
-.search-btn {
-  color: white;
-}
-
 .no-scroll {
   overflow: hidden;
+}
+
+.btn {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #009f50;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+.btn:hover {
+  border-color: #edeeff;
+  background-color: #1a7e4c;
+}
+.btn:focus,
+.btn:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+::placeholder {
+  text-align: center;
 }
