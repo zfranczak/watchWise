@@ -17,7 +17,7 @@ import {
 import TopRated from './components/TopRated';
 
 import { GlobalProvider } from './context/GlobalState';
-import { AuthProvider } from './context/AuthContext';
+// import { AuthProvider } from './context/AuthContext';
 
 function App() {
   const [providersData, setProvidersData] = useState({});
