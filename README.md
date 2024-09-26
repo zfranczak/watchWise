@@ -3,46 +3,63 @@
 Watch Wise is a web application designed to help movie enthusiasts manage and discover films for their movie nights. This documentation provides an overview of the app's structure and dependencies.
 [LIVE DEMO!](https://chic-semolina-076749.netlify.app/)
 
+# Movie Watchlist Site Documentation
+
+Welcome to the Movie Watchlist site! This documentation will guide you through using the site's features to discover and manage your favorite movies.
+
 ## Table of Contents
 
-- [Getting Started](#getting-started)
-  - [Installation](#installation)
-  - [Development](#development)
-  - [Production Build](#production-build)
-- [Dependencies](#dependencies)
-- [Hackathon](#hackathon)
+1. Introduction
+2. Getting Started
+3. Browsing Movies
+4. Adding Movies to Watchlist
+5. Viewing Movie Details
+6. Removing Movies from Watchlist
+7. Exploring Provider Information
 
-## Getting Started
+## 1. Introduction
 
-### Installation
+The Movie Watchlist site allows you to explore a wide range of top-rated movies and manage your personal watchlist. You can browse through movie posters, read descriptions, add movies to your watchlist, and even view information about where you can watch them.
 
-To run the Watch Wise app locally, follow these steps:
+## 2. Getting Started
 
-1. Clone the repository from [GitHub](https://github.com/zfranczak/watchWise).
+1. Open your web browser and navigate to the Movie Watchlist site.
+2. Once on the site's homepage, you'll see a collection of top-rated movies displayed as posters.
 
-2. Install the project dependencies using npm:
+## 3. Browsing Movies
 
-```
-npm install
-```
+- Scroll through the list of movie posters to discover different movies.
+- Click on a movie poster to view more details about the movie.
 
-### Development
+## 4. Adding Movies to Watchlist
 
-To start the development server and run the app locally, use the following command:
+- On the movie details page, you'll find a button labeled "Add to Watchlist."
+- Clicking this button will add the movie to your personal watchlist.
+- If the movie is already in your watchlist, the button will be disabled.
 
-```
-npm run dev
-```
+## 5. Viewing Movie Details
 
-This will launch the app on `http://localhost:3000`.
+- When you click on a movie poster, you'll be taken to the movie details page.
+- Here, you can see the movie's title, overview, release date, and rating.
+- You can also view information about where the movie is available for streaming.
 
-### Production Build
+## 6. Removing Movies from Watchlist
 
-To create a production build of the app, use the following command:
+- If you've added a movie to your watchlist and want to remove it, you can do so on the movie details page.
+- For movies in your watchlist, you'll see a button labeled "Remove from Watchlist."
+- Clicking this button will remove the movie from your watchlist.
 
-```
-npm run build
-```
+## 7. Exploring Provider Information
+
+- On the movie details page, you'll find a section called "Provider Information."
+- This section displays logos of streaming providers where the movie is available.
+- If you want to know where you can watch the movie, look for the streaming provider logos.
+
+## Conclusion
+
+With the Movie Watchlist site, you can easily discover new movies, add them to your watchlist, and keep track of your favorite films. Enjoy exploring and managing your movie collection!
+
+If you have any further questions or need assistance, please feel free to contact our support team. Happy movie watching!
 
 The production build will be available in the `dist` folder.
 
